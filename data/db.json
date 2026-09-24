@@ -1,0 +1,38 @@
+{
+  "users": [
+    {
+      "id": "admin-0001",
+      "fullName": "Baş Admin",
+      "name": "Baş Admin",
+      "email": "amil@gamexstore.az",
+      "password": "$2b$10$UEte/6vWsdkjcTIIIqusk.k6rtrOBw8fV..duncRkCwa.9Ir15v6.",
+      "role": "admin",
+      "balance": 10000999,
+      "banned": false,
+      "createdAt": "2026-09-24T16:50:25.765Z"
+    },
+    {
+      "id": "usr-admin",
+      "fullName": "Admin Operator",
+      "name": "Admin Operator",
+      "email": "admin@nexus.az",
+      "password": "$2b$10$IlgEOKf0FIovm8bmH8hAw.gPEEsy9XjNaDTUgPO/caPWAmf.H/gyW",
+      "role": "user",
+      "balance": 0,
+      "banned": false,
+      "createdAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "usr-user",
+      "fullName": "Amil Məmmədli",
+      "name": "Amil Məmmədli",
+      "email": "user@nexus.az",
+      "password": "$2b$10$my.p0bu5fnzp6pGrsK/kBukgtLk1Agc02f7MVf3aJ9MclWvTSMOSu",
+      "role": "user",
+      "balance": 1000,
+      "banned": false,
+      "createdAt": "2026-08-15T12:00:00.000Z"
+    }
+  ],
+  "orders": []
+}

@@ -1,0 +1,123 @@
+[
+  {
+    "id": "ORD-177652",
+    "userId": "admin-0001",
+    "userName": "Baş Admin",
+    "userEmail": "amil@gamexstore.az",
+    "contact": "",
+    "items": [
+      {
+        "id": 2,
+        "title": "PUBG Mobile UC",
+        "price": 5.5,
+        "quantity": 2,
+        "type": "Oyun / Kod",
+        "deliveredKey": "PUBG-4XJ3-7M0A-GEAN",
+        "deliveredAccount": null
+      }
+    ],
+    "totalAmount": 5.5,
+    "paymentMethod": "Bank Kartı (Visa/MC)",
+    "status": "Tamamlandı",
+    "createdAt": "2026-09-24T17:03:01.741Z"
+  },
+  {
+    "id": "ORD-458771",
+    "userId": "admin-0001",
+    "userName": "Baş Admin",
+    "userEmail": "admin@gamexstore.az",
+    "contact": "",
+    "items": [
+      {
+        "id": 1,
+        "title": "EA Sports FC 24",
+        "price": 79.99,
+        "quantity": 20,
+        "type": "Oyun / Kod",
+        "deliveredKey": "EASP-GJKG-9OMM-RY7O",
+        "deliveredAccount": null
+      },
+      {
+        "id": 2,
+        "title": "Cyberpunk 2077",
+        "price": 45,
+        "quantity": 20,
+        "type": "Oyun / Kod",
+        "deliveredKey": "CYBE-S01B-F5RS-X5P8",
+        "deliveredAccount": null
+      },
+      {
+        "id": 3,
+        "title": "Elden Ring",
+        "price": 55.5,
+        "quantity": 20,
+        "type": "Oyun / Kod",
+        "deliveredKey": "ELDE-I3F0-X7JC-L2IZ",
+        "deliveredAccount": null
+      },
+      {
+        "id": 4,
+        "title": "Hogwarts Legacy",
+        "price": 65,
+        "quantity": 20,
+        "type": "Oyun / Kod",
+        "deliveredKey": "HOGW-CXDT-J0XI-USXK",
+        "deliveredAccount": null
+      }
+    ],
+    "totalAmount": 245.49,
+    "paymentMethod": "Bank Kartı (Visa/MC)",
+    "status": "Tamamlandı",
+    "createdAt": "2026-09-24T16:58:50.937Z"
+  },
+  {
+    "id": "ORD-670696",
+    "userId": "admin-0001",
+    "userName": "Baş Admin",
+    "userEmail": "admin@gamexstore.az",
+    "contact": "+994105122412",
+    "items": [
+      {
+        "id": 104,
+        "title": "Brawl Stars (45K Trophies)",
+        "price": 85,
+        "quantity": 1,
+        "type": "Oyun / Kod",
+        "deliveredKey": "BRAW-24WM-RC7K-B4QW",
+        "deliveredAccount": null
+      },
+      {
+        "id": 1,
+        "title": "Valorant Points (VP)",
+        "price": 12,
+        "quantity": 1,
+        "type": "Oyun / Kod",
+        "deliveredKey": "VALO-GBJU-U8TU-AZNT",
+        "deliveredAccount": null
+      }
+    ],
+    "totalAmount": 97,
+    "paymentMethod": "Bank Kartı (Visa/MC)",
+    "status": "Tamamlandı",
+    "createdAt": "2026-09-24T16:52:54.110Z"
+  },
+  {
+    "id": "ORD-982145",
+    "userId": "usr-user",
+    "userName": "Amil Məmmədli",
+    "userEmail": "user@nexus.az",
+    "items": [
+      {
+        "id": "game-1",
+        "title": "Grand Theft Auto V: Premium Edition",
+        "price": 19.99,
+        "type": "Oyun Açarı",
+        "deliveredKey": "NEXUS-GTAV-9B21-4F8A-71CD"
+      }
+    ],
+    "totalAmount": 19.99,
+    "paymentMethod": "M10",
+    "status": "Tamamlandı",
+    "createdAt": "2026-09-01T14:32:00.000Z"
+  }
+]

@@ -1,43 +1,110 @@
 "use client";
-import { createContext, useContext, useState } from "react";
 
-const CartContext = createContext();
+import React, { createContext, useContext, useState, useEffect } from "react";
+
+export const CartContext = createContext(null);
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  // 1. Səhifə ilk açılanda localStorage-dən məlumatı təhlükəsiz oxumaq
+  useEffect(() => {
+    try {
+      const savedCart = localStorage.getItem("gameX_cart");
+      if (savedCart) {
+        const parsed = JSON.parse(savedCart);
+        if (Array.isArray(parsed)) {
+          setCartItems(parsed);
+        }
+      }
+    } catch (error) {
+      console.error("Səbət məlumatları oxunarkən xəta baş verdi:", error);
+    } finally {
+      setIsLoaded(true);
+    }
+  }, []);
+
+  // 2. Yalnız ilkin oxunma bitdikdən sonra dəyişiklikləri localStorage-ə yazmaq
+  useEffect(() => {
+    if (isLoaded) {
+      try {
+        localStorage.setItem("gameX_cart", JSON.stringify(cartItems));
+      } catch (error) {
+        console.error("Səbət yaddaşa yazılarkən xəta:", error);
+      }
+    }
+  }, [cartItems, isLoaded]);
 
   // Səbətə məhsul əlavə etmək
   const addToCart = (product) => {
-    setCartItems((prev) => {
-      const exists = prev.find((item) => item.id === product.id);
-      if (exists) {
-        // Əgər məhsul artıq varsa, sayını 1 artır (istəyə bağlı)
-        return prev.map((item) =>
+    if (!product) return;
+
+    // Qiyməti təmiz rəqəmə çeviririk (string və ya number ola bilər)
+    const numericPrice =
+      typeof product.price === "string"
+        ? parseFloat(product.price.replace(/[^\d.-]/g, "")) || 0
+        : Number(product.price) || 0;
+
+    const normalizedProduct = {
+      ...product,
+      price: numericPrice,
+      image: product.image || product.img || "/EA.jpg",
+    };
+
+    setCartItems((prevItems) => {
+      const existingItem = prevItems.find((item) => item.id === product.id);
+
+      if (existingItem) {
+        // Məhsul artıq səbətdə varsa, sadəcə sayını artırırıq
+        return prevItems.map((item) =>
           item.id === product.id
             ? { ...item, quantity: (item.quantity || 1) + 1 }
             : item,
         );
       }
-      // Yeni məhsul əlavə edəndə quantity: 1 olduğundan əmin oluruq
-      return [...prev, { ...product, quantity: 1 }];
+
+      // Yeni məhsul əlavə edirik
+      return [...prevItems, { ...normalizedProduct, quantity: 1 }];
     });
   };
 
   // Səbətdən məhsul silmək
   const removeFromCart = (id) => {
-    setCartItems((prev) => prev.filter((item) => item.id !== id));
+    setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
   };
 
-  // SAYI YENİLƏMƏK ÜÇÜN ƏLAVƏ EDİLƏN FUNKSİYA
+  // Məhsulun sayını artırmaq və ya azaltmaq
   const updateQuantity = (id, delta) => {
-    setCartItems((prev) =>
-      prev.map((item) =>
-        item.id === id
-          ? { ...item, quantity: Math.max(1, (item.quantity || 1) + delta) }
-          : item,
-      ),
+    setCartItems((prevItems) =>
+      prevItems
+        .map((item) => {
+          if (item.id === id) {
+            const newQuantity = (item.quantity || 1) + delta;
+            return newQuantity > 0 ? { ...item, quantity: newQuantity } : null;
+          }
+          return item;
+        })
+        .filter(Boolean),
     );
   };
+
+  // Səbəti tamamilə təmizləmək (Ödənişdən sonra)
+  const clearCart = () => {
+    setCartItems([]);
+  };
+
+  // Ümumi məbləğ
+  const totalPrice = cartItems.reduce(
+    (total, item) => total + (item.price || 0) * (item.quantity || 1),
+    0,
+  );
+
+  // Ümumi ədəd sayı
+  const totalCount = cartItems.reduce(
+    (count, item) => count + (item.quantity || 1),
+    0,
+  );
 
   return (
     <CartContext.Provider
@@ -45,7 +112,11 @@ export const CartProvider = ({ children }) => {
         cartItems,
         addToCart,
         removeFromCart,
-        updateQuantity, // Funksiyanı bura əlavə etdik
+        updateQuantity,
+        clearCart,
+        totalPrice,
+        totalCount,
+        isLoaded,
       }}
     >
       {children}
@@ -53,4 +124,13 @@ export const CartProvider = ({ children }) => {
   );
 };
 
-export const useCart = () => useContext(CartContext);
+// Xüsusi Hook
+export const useCart = () => {
+  const context = useContext(CartContext);
+  if (!context) {
+    throw new Error(
+      "useCart mütləq CartProvider daxilində istifadə olunmalıdır!",
+    );
+  }
+  return context;
+};

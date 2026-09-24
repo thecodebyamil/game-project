@@ -1,5 +1,7 @@
 "use client";
-import { useState } from "react";
+
+import React, { useState } from "react";
+import Link from "next/link";
 import {
   Mail,
   Phone,
@@ -8,81 +10,119 @@ import {
   MessageSquare,
   Instagram,
   Twitter,
+  Clock,
+  CheckCircle2,
+  HelpCircle,
 } from "lucide-react";
 
-const ContactPage = () => {
+export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
 
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form göndərildi:", formData);
-    alert("Mesajınız qəbul edildi! Tezliklə sizinlə əlaqə saxlayacağıq.");
+    setIsLoading(true);
+
+    // Form göndərilməsi simulyasiyası
+    setTimeout(() => {
+      setIsLoading(false);
+      setIsSuccess(true);
+      setFormData({ name: "", email: "", message: "" });
+
+      setTimeout(() => setIsSuccess(false), 4000);
+    }, 800);
   };
 
   return (
-    <div className="bg-[#0f172a] min-h-screen text-white pb-20 font-sans">
-      {/* Üst Başlıq - Mərkəzlənmiş Versiya */}
-      <div className="bg-[#1e293b] py-20 border-b border-red-500/20 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 relative z-10 text-center">
-          <h1 className="text-6xl font-black italic uppercase tracking-tighter leading-none">
-            Bizimlə <span className="text-red-500">Əlaqə</span>
+    <main className="bg-[#090d16] min-h-screen text-slate-100 pb-24 selection:bg-red-500 selection:text-white">
+      {/* 1. Üst Başlıq (Header) */}
+      <section className="relative py-20 md:py-28 bg-slate-900/40 border-b border-slate-800/80 overflow-hidden">
+        <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-red-600/15 blur-[120px] rounded-full pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-6 text-xs font-bold tracking-wider text-red-400 uppercase bg-red-950/40 border border-red-800/40 rounded-full">
+            <Clock className="w-3.5 h-3.5 text-red-500" />
+            <span>24/7 CANLI VƏ TEXNİKİ DƏSTƏK</span>
+          </div>
+
+          <h1 className="text-4xl sm:text-6xl font-black uppercase italic tracking-tight leading-none">
+            BİZİMLƏ{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-rose-400">
+              ƏLAQƏ
+            </span>
           </h1>
-          <p className="text-gray-400 mt-6 text-lg max-w-2xl mx-auto border-t md:border-t-0 md:border-l-2 border-red-500 pt-4 md:pt-0 md:pl-4 transition-all">
-            Sualın var və ya dəstəyə ehtiyacın var? Bizə yaz, komandamız 24/7
-            xidmətindədir.
+
+          <p className="mt-4 text-slate-300 text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
+            Hər hansı sualınız, təklifiniz və ya texniki çətinliyiniz varsa,
+            bizə yazın. Operativ komandamız ən qısa zamanda cavablandıracaq.
           </p>
         </div>
-        {/* Dekorativ element */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-red-600/5 rounded-full blur-[100px] -mr-20 -mt-20"></div>
-      </div>
+      </section>
 
-      <div className="max-w-7xl mx-auto px-4 mt-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Sol Tərəf: Əlaqə Məlumatları */}
-          <div className="space-y-12">
+      {/* 2. Əlaqə Bölməsi */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          {/* Sol Tərəf: Əlaqə Vasitələri (5 sütun) */}
+          <div className="lg:col-span-5 space-y-8">
             <div>
-              <h3 className="text-2xl font-black uppercase italic mb-8 flex items-center gap-3">
-                <MessageSquare className="text-red-500" /> Əlaqə Vasitələri
-              </h3>
+              <h2 className="text-2xl font-black uppercase italic mb-6 flex items-center gap-3 text-white">
+                <MessageSquare className="w-6 h-6 text-red-500" />
+                <span>Əlaqə Vasitələri</span>
+              </h2>
 
-              <div className="space-y-6">
-                <div className="flex items-center gap-6 p-6 bg-[#1e293b] border border-gray-800 rounded-[2.5rem] hover:border-red-500/50 transition-all group">
-                  <div className="p-4 bg-red-600/10 rounded-2xl text-red-500 group-hover:bg-red-600 group-hover:text-white transition-all">
-                    <Mail size={24} />
+              <div className="space-y-4">
+                {/* E-poçt */}
+                <a
+                  href="mailto:support@gamexstore.az"
+                  className="flex items-center gap-5 p-5 bg-slate-900/80 border border-slate-800 rounded-2xl hover:border-red-500/40 hover:bg-slate-900 transition-all duration-200 group"
+                >
+                  <div className="p-3.5 bg-red-500/10 rounded-xl text-red-500 group-hover:scale-110 group-hover:bg-red-500 group-hover:text-white transition-all shrink-0">
+                    <Mail size={22} />
                   </div>
                   <div>
-                    <p className="text-xs text-gray-500 uppercase font-black tracking-widest">
-                      E-poçt
+                    <p className="text-[10px] text-slate-400 uppercase font-black tracking-wider">
+                      E-poçt Ünvanı
                     </p>
-                    <p className="text-lg font-bold">support@oyunmagazasi.az</p>
+                    <p className="text-base font-bold text-white group-hover:text-red-400 transition-colors">
+                      support@gamexstore.az
+                    </p>
                   </div>
-                </div>
+                </a>
 
-                <div className="flex items-center gap-6 p-6 bg-[#1e293b] border border-gray-800 rounded-[2.5rem] hover:border-red-500/50 transition-all group">
-                  <div className="p-4 bg-red-600/10 rounded-2xl text-red-500 group-hover:bg-red-600 group-hover:text-white transition-all">
-                    <Phone size={24} />
+                {/* Telefon */}
+                <a
+                  href="tel:+994551234567"
+                  className="flex items-center gap-5 p-5 bg-slate-900/80 border border-slate-800 rounded-2xl hover:border-red-500/40 hover:bg-slate-900 transition-all duration-200 group"
+                >
+                  <div className="p-3.5 bg-red-500/10 rounded-xl text-red-500 group-hover:scale-110 group-hover:bg-red-500 group-hover:text-white transition-all shrink-0">
+                    <Phone size={22} />
                   </div>
                   <div>
-                    <p className="text-xs text-gray-500 uppercase font-black tracking-widest">
-                      Telefon
+                    <p className="text-[10px] text-slate-400 uppercase font-black tracking-wider">
+                      Qaynar Xətt
                     </p>
-                    <p className="text-lg font-bold">+994 (55) 123 45 67</p>
+                    <p className="text-base font-bold text-white group-hover:text-red-400 transition-colors">
+                      +994 (55) 123 45 67
+                    </p>
                   </div>
-                </div>
+                </a>
 
-                <div className="flex items-center gap-6 p-6 bg-[#1e293b] border border-gray-800 rounded-[2.5rem] hover:border-red-500/50 transition-all group">
-                  <div className="p-4 bg-red-600/10 rounded-2xl text-red-500 group-hover:bg-red-600 group-hover:text-white transition-all">
-                    <MapPin size={24} />
+                {/* Ünvan */}
+                <div className="flex items-center gap-5 p-5 bg-slate-900/80 border border-slate-800 rounded-2xl">
+                  <div className="p-3.5 bg-red-500/10 rounded-xl text-red-500 shrink-0">
+                    <MapPin size={22} />
                   </div>
                   <div>
-                    <p className="text-xs text-gray-500 uppercase font-black tracking-widest">
-                      Ünvan
+                    <p className="text-[10px] text-slate-400 uppercase font-black tracking-wider">
+                      Mərkəzi Ofis
                     </p>
-                    <p className="text-lg font-bold">
+                    <p className="text-base font-bold text-white">
                       Bakı şəhəri, Nizami küç. 42
                     </p>
                   </div>
@@ -90,88 +130,141 @@ const ContactPage = () => {
               </div>
             </div>
 
-            {/* Sosial Media */}
+            {/* Sosial Şəbəkələr */}
             <div>
-              <h4 className="text-sm font-black uppercase tracking-[0.3em] text-gray-500 mb-4">
-                Bizi İzləyin
-              </h4>
-              <div className="flex gap-4">
-                {[Instagram, Twitter].map((Icon, i) => (
-                  <a
-                    key={i}
-                    href="#"
-                    className="w-12 h-12 bg-[#1e293b] border border-gray-800 rounded-xl flex items-center justify-center hover:bg-red-600 hover:border-red-600 transition-all text-gray-400 hover:text-white"
-                  >
-                    <Icon size={20} />
-                  </a>
-                ))}
+              <h3 className="text-xs font-black uppercase tracking-widest text-slate-400 mb-4">
+                Bizi Sosial Şəbəkələrdə İzləyin
+              </h3>
+              <div className="flex gap-3">
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="w-12 h-12 bg-slate-900 border border-slate-800 rounded-xl flex items-center justify-center hover:bg-red-600 hover:border-red-600 text-slate-400 hover:text-white transition-all active:scale-95"
+                >
+                  <Instagram size={20} />
+                </a>
+                <a
+                  href="https://twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Twitter"
+                  className="w-12 h-12 bg-slate-900 border border-slate-800 rounded-xl flex items-center justify-center hover:bg-red-600 hover:border-red-600 text-slate-400 hover:text-white transition-all active:scale-95"
+                >
+                  <Twitter size={20} />
+                </a>
+              </div>
+            </div>
+
+            {/* Sual-Cavab Banneri */}
+            <div className="p-5 rounded-2xl bg-slate-900/50 border border-slate-800 flex items-start gap-4">
+              <HelpCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
+              <div>
+                <h4 className="text-sm font-bold text-white">
+                  Tez-tez Verilən Suallar
+                </h4>
+                <p className="text-xs text-slate-400 mt-1 leading-relaxed">
+                  Ödəniş və ya kod aktivasiyası ilə bağlı hazır cavablar üçün
+                  FAQ səhifəsinə nəzər yetirə bilərsiniz.
+                </p>
+                <Link
+                  href="/faq"
+                  className="text-xs font-bold text-red-400 hover:text-red-300 mt-2.5 inline-block"
+                >
+                  FAQ səhifəsinə keç ➔
+                </Link>
               </div>
             </div>
           </div>
 
-          {/* Sağ Tərəf: Əlaqə Formu */}
-          <div className="bg-[#1e293b] p-8 md:p-12 rounded-[3rem] border border-gray-800 shadow-2xl">
-            <h3 className="text-2xl font-black uppercase italic mb-8">
-              Mesaj Göndər
-            </h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="space-y-2">
-                <label className="text-xs font-black uppercase tracking-widest text-gray-500 ml-2">
-                  Adınız
+          {/* Sağ Tərəf: Əlaqə Formu (7 sütun) */}
+          <div className="lg:col-span-7 bg-slate-900/80 p-6 sm:p-10 rounded-3xl border border-slate-800 shadow-2xl relative">
+            <h2 className="text-2xl font-black uppercase italic mb-2 text-white">
+              Birbaşa Mesaj Göndər
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-400 mb-8">
+              Müraciətiniz qeydə alındıqdan sonra dərhal e-poçtunuza cavab
+              göndəriləcək.
+            </p>
+
+            {isSuccess && (
+              <div className="mb-6 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm flex items-center gap-3 animate-in fade-in">
+                <CheckCircle2 className="w-5 h-5 shrink-0" />
+                <span>
+                  Mesajınız qəbul edildi! Ən qısa zamanda sizinlə əlaqə
+                  saxlayacağıq.
+                </span>
+              </div>
+            )}
+
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div>
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-2">
+                  Adınız və Soyadınız
                 </label>
                 <input
                   type="text"
-                  placeholder="Məs: Əli Məmmədov"
-                  className="w-full bg-[#0f172a] border border-gray-800 rounded-2xl px-6 py-4 focus:outline-none focus:border-red-600 transition-all text-white placeholder:text-gray-600"
+                  value={formData.name}
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
+                  placeholder="Məs: Əli Məmmədov"
                   required
+                  className="w-full bg-slate-950 border border-slate-700/80 rounded-xl px-4 py-3.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-red-500 transition-colors"
                 />
               </div>
 
-              <div className="space-y-2">
-                <label className="text-xs font-black uppercase tracking-widest text-gray-500 ml-2">
+              <div>
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-2">
                   E-poçt Ünvanınız
                 </label>
                 <input
                   type="email"
-                  placeholder="ali@example.com"
-                  className="w-full bg-[#0f172a] border border-gray-800 rounded-2xl px-6 py-4 focus:outline-none focus:border-red-600 transition-all text-white placeholder:text-gray-600"
+                  value={formData.email}
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
+                  placeholder="nümunə@example.com"
                   required
+                  className="w-full bg-slate-950 border border-slate-700/80 rounded-xl px-4 py-3.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-red-500 transition-colors"
                 />
               </div>
 
-              <div className="space-y-2">
-                <label className="text-xs font-black uppercase tracking-widest text-gray-500 ml-2">
+              <div>
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-2">
                   Mesajınız
                 </label>
                 <textarea
-                  rows="4"
-                  placeholder="Sualınızı bura yazın..."
-                  className="w-full bg-[#0f172a] border border-gray-800 rounded-2xl px-6 py-4 focus:outline-none focus:border-red-600 transition-all resize-none text-white placeholder:text-gray-600"
+                  rows={5}
+                  value={formData.message}
                   onChange={(e) =>
                     setFormData({ ...formData, message: e.target.value })
                   }
+                  placeholder="Sualınızı və ya probleminizi ətraflı qeyd edin..."
                   required
-                ></textarea>
+                  className="w-full bg-slate-950 border border-slate-700/80 rounded-xl px-4 py-3.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-red-500 transition-colors resize-none"
+                />
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-red-600 hover:bg-red-700 text-white font-black uppercase py-5 rounded-2xl flex items-center justify-center gap-3 transition-all shadow-lg shadow-red-900/20 active:scale-95"
+                disabled={isLoading}
+                className="w-full bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white font-black uppercase tracking-wider py-4 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg shadow-red-600/30 active:scale-95 cursor-pointer disabled:opacity-60 text-xs sm:text-sm"
               >
-                <Send size={18} /> Mesajı Göndər
+                {isLoading ? (
+                  <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                ) : (
+                  <>
+                    <Send size={16} />
+                    <span>Mesajı Göndər</span>
+                  </>
+                )}
               </button>
             </form>
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
-};
-
-export default ContactPage;
+}

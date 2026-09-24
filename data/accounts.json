@@ -1,0 +1,164 @@
+[
+  {
+    "id": "acc-101",
+    "game": "Valorant",
+    "title": "Valorant Radiant / Immortal 3 — 48 Premium Dəri (Kuronami + Reaver)",
+    "rank": "Radiant (Top 500)",
+    "region": "EU (Türkiyə / Avropa)",
+    "accessType": "Tam Giriş (Mail Dəyişir)",
+    "warranty": "Ömürlük Zəmanət",
+    "price": 95.0,
+    "oldPrice": 140.0,
+    "image": "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800&auto=format&fit=crop",
+    "status": "Yoxlanılmış Hesab",
+    "inventory": [
+      "Kuronami Vandal",
+      "Prime Vandal",
+      "Reaver Phantom",
+      "Oni Claw",
+      "Sovereign Sword"
+    ],
+    "createdBy": "admin@nexus.az",
+    "isUserCreated": false,
+    "credentials": {
+      "username": "radiant_hunter_az",
+      "password": "TempPassword!2026",
+      "mailAccess": "Tam email girişi təmin edilir"
+    }
+  },
+  {
+    "id": "acc-102",
+    "game": "Counter-Strike 2",
+    "title": "CS2 Prime Status + 10 İl Xidmət Medalı + Karambit Doppler Bıçaq",
+    "rank": "Global Elite / 22,500 CS Rating",
+    "region": "Region Free",
+    "accessType": "İlk Mail + Steam Guard Təmiz",
+    "warranty": "30 Gün Zəmanət",
+    "price": 69.0,
+    "oldPrice": 110.0,
+    "image": "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=800&auto=format&fit=crop",
+    "status": "Prime Status",
+    "inventory": [
+      "Karambit Doppler (Factory New)",
+      "AK-47 Asiimov",
+      "AWP Hyper Beast",
+      "M4A4 Neo-Noir"
+    ],
+    "createdBy": "admin@nexus.az",
+    "isUserCreated": false,
+    "credentials": {
+      "username": "cs2_pro_trader",
+      "password": "Cs2SteamPass2026#",
+      "mailAccess": "İlk qeydiyyat emaili ilə birgə verilir"
+    }
+  },
+  {
+    "id": "acc-103",
+    "game": "Steam",
+    "title": "Steam Hesabı — 140+ AAA Oyun (RDR2, Cyberpunk, GTA V, Elden Ring)",
+    "rank": "Level 50 (Steam)",
+    "region": "Qlobal / Region Free",
+    "accessType": "Tam Giriş (Mail Dəyişir)",
+    "warranty": "Tam Zəmanət",
+    "price": 85.0,
+    "oldPrice": 150.0,
+    "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800&auto=format&fit=crop",
+    "status": "140+ Oyun",
+    "inventory": [
+      "Cyberpunk 2077",
+      "Red Dead Redemption 2",
+      "GTA V",
+      "Forza Horizon 5",
+      "Elden Ring",
+      "Witcher 3"
+    ],
+    "createdBy": "admin@nexus.az",
+    "isUserCreated": false,
+    "credentials": {
+      "username": "steam_legend_baku",
+      "password": "SteamVipPass_99",
+      "mailAccess": "Mail və Steam Guard dərhal özünüzə keçirilir"
+    }
+  },
+  {
+    "id": "acc-104",
+    "game": "GTA V",
+    "title": "GTA 5 Online Zəngin Hesab — 650M$ Nağd + Bütün Mülklər + Rank 300",
+    "rank": "Rank 300",
+    "region": "PC (Social Club / Steam)",
+    "accessType": "Təmiz Hesab / 0 Ban",
+    "warranty": "30 Gün Zəmanət",
+    "price": 26.0,
+    "oldPrice": 45.0,
+    "image": "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=800&auto=format&fit=crop",
+    "status": "650M$ Balans",
+    "inventory": [
+      "Oppressor Mk2",
+      "Bütün Yaxtalar",
+      "Bunker",
+      "Hangar",
+      "İnfinity Supercars"
+    ],
+    "createdBy": "admin@nexus.az",
+    "isUserCreated": false,
+    "credentials": {
+      "username": "los_santos_millionaire",
+      "password": "GtaVPass99#Az",
+      "mailAccess": "Social Club email və parol dəyişimi açıqdır"
+    }
+  },
+  {
+    "id": "acc-105",
+    "game": "Brawl Stars",
+    "title": "Brawl Stars 45,000 Kubok — 82/82 Brawler + 12 Hypercharge + Nadir Dərilər",
+    "rank": "45,000 Kubok",
+    "region": "Supercell ID",
+    "accessType": "Supercell ID E-poçtu Verilir",
+    "warranty": "Ömürlük Zəmanət",
+    "price": 42.0,
+    "oldPrice": 65.0,
+    "image": "https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?q=80&w=800&auto=format&fit=crop",
+    "status": "82/82 Brawler",
+    "inventory": [
+      "Mecha Crow",
+      "Phoenix Crow",
+      "Gold Spike",
+      "Chrono Edgar",
+      "Star Shelly"
+    ],
+    "createdBy": "admin@nexus.az",
+    "isUserCreated": false,
+    "credentials": {
+      "username": "brawl_star_king",
+      "password": "SupercellPinCodeProvided",
+      "mailAccess": "Supercell ID poçtu təhvil verilir"
+    }
+  },
+  {
+    "id": "acc-106",
+    "game": "PUBG Mobile",
+    "title": "PUBG Mobile 78 Level — M416 Buz Diyarı Lv7 + Mumya Dəsti + 2 X-Suit",
+    "rank": "Fatih / Conqueror",
+    "region": "Qlobal",
+    "accessType": "Twitter & Mail Tam Təmiz",
+    "warranty": "Zəmanətli",
+    "price": 139.0,
+    "oldPrice": 210.0,
+    "image": "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=800&auto=format&fit=crop",
+    "status": "Buz Diyarı Lv7",
+    "inventory": [
+      "M416 Buz Diyarı (Full)",
+      "Sarı Mumya Dəsti",
+      "Fiorenza X-Suit",
+      "Bəyaz Mumya",
+      "Uzi Romantik"
+    ],
+    "createdBy": "admin@nexus.az",
+    "isUserCreated": false,
+    "credentials": {
+      "username": "pubg_conqueror_azerbaijan",
+      "password": "PubgPasscode2026$",
+      "mailAccess": "Twitter və e-poçt bağları təmizlənib verilir"
+    }
+  }
+]
